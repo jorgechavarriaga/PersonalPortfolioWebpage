@@ -1,0 +1,415 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Portfolio - freeCodeCamp</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto+Slab:wght@300&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* My Own variablesCustom properties/variables  */
+        :root {
+            --my-white: #eaeaea;
+            --my-red: #ff2e63;
+            --my-blue: #112d4e;
+            --my-dark-blue: #252a34;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 75em) {
+            html {
+                font-size: 60%;
+            }
+        }
+
+        @media (max-width: 61.25em) {
+            html {
+                font-size: 58%;
+            }
+        }
+
+        @media (max-width: 28.75em) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--my-white);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 5.5rem;
+        }
+
+        h2 {
+            font-size: 4.5rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--my-white);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            border-r;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 25rem;
+            height: 25rem;
+            border-radius: 50%;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--my-red);
+        }
+
+        .nav-list {
+            display: flex;
+            margin-right: 2rem;
+        }
+
+        @media (max-width: 28.75em) {
+            .nav {
+                justify-content: center;
+            }
+
+            .nav-list {
+                margin: 0 1rem;
+            }
+        }
+
+        .nav-list a {
+            display: block;
+            font-size: 2.2rem;
+            padding: 2rem;
+        }
+
+        .nav-list a:hover {
+            background: var(--my-blue);
+        }
+
+        .welcome-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color:var(--my-dark-blue);
+        }
+
+        .welcome-section>p {
+            font-size: 2.5rem;
+            font-weight: 100;
+            color: var(--my-red);
+        }
+
+        .projects-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--my-blue);
+        }
+
+        .projects-section-header {
+            max-width: 680px;
+            margin: 0 auto 6rem auto;
+            border-bottom: 0.2rem solid var(--my-white);
+        }
+
+        .hobbies-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--my-dark-blue);
+
+        }
+
+        .hobbies-section-header {
+            max-width: 240px;
+            margin: 0 auto 6rem auto;
+            border-bottom: 0.2rem solid var(--my-white);
+        }
+
+        li {
+            padding: 10px;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 28.75em) {
+            .projects-section-header, .hobbies-section-header {
+                font-size: 4rem;
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 5rem;
+            width: 100%;
+            max-width: 1024px;
+            margin: 0 auto;
+            margin-bottom: 5rem;
+        }
+
+        @media (max-width: 30.625em) {
+            .projects-section, .hobbies-section {
+                padding: 6rem 1rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project {
+            background: var(--my-dark-blue);
+            border-radius: 20px;
+        }
+
+        .code {
+            color: var(--my-dark-blue);
+            transition: color 0.5s ease-out;
+        }
+
+        .project:hover .code {
+            color: var(--my-red);
+        }
+
+        .project-image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-title {
+            font-size: 2.25rem;
+            padding: 1.5rem ;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+        }
+
+        .btn-show-all {
+            font-size: 2rem;
+            background: var(--my-dark-blue);
+            transition: background 0.3s ease-out;
+        }
+
+        .btn-show-all:hover {
+            background: var(--my-red);
+        }
+
+        .btn-show-all:hover>i {
+            transform: translateX(1.5rem);
+        }
+
+        .btn-show-all>i {
+            margin-left: 1rem;
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 60vh;
+            padding: 0 2rem;
+            background: var(--my-blue);
+        }
+
+        .contact-section-header>h2 {
+            font-size: 6rem;
+        }
+
+        @media (max-width: 28.75em) {
+            .contact-section-header>h2 {
+                font-size: 4rem;
+            }
+        }
+
+        .contact-section-header>p {
+            font-style: italic;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 980px;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-details {
+            font-size: 2.4rem;
+            text-shadow: 2px 2px 1px var(--my-blue);
+            transition: transform 0.5s ease-out;
+        }
+
+        .contact-details:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            font-weight: 100;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2rem;
+            background: var(--my-dark-blue);
+        }
+
+        footer>p {
+            margin: 2rem;
+        }
+
+        footer i {
+            vertical-align: middle;
+
+            @media (max-width: 28.75em) {
+                footer {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+    </style>
+</head>
+
+<body translate="no">
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+            <li><a href="#welcome-section">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#hobbies-section">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="welcome-section" class="welcome-section">
+        <img class="avatar" src="https://www.chavazystem.tech/assets/images/jorgechavarriaga.jpg"
+            alt="Jorge Chavarriaga" />
+        <h1>Hi !! I am Jorge Chavarriaga</h1>
+        <p>a Full Stack Developer</p>
+        <p>Mechanical Engineer</p>
+        <p>and Specialist in Logistic</p>
+    </section>
+    <section id="projects" class="projects-section">
+        <h2 class="projects-section-header">My projects at freeCodeCamp</h2>
+        <div class="projects-grid">
+            <a href="https://codepen.io/jorgechavarriaga/pen/YzpjmLZ" target="_blank" class="project project-tile">
+                <img class="project-image" src="https://www.chavazystem.tech/assets/images/TributePage.jpg"
+                    alt="project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Tribute Page
+                    <span class="code">/&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/jorgechavarriaga/pen/poNOwmp" target="_blank" class="project project-tile">
+                <img class="project-image" src="https://www.chavazystem.tech/assets/images/SurveyForm.jpg"
+                    alt="project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Survey Form
+                    <span class="code">/&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/jorgechavarriaga/pen/jOVXxLV" target="_blank" class="project project-tile">
+                <img class="project-image"
+                    src="https://www.chavazystem.tech/assets/images/TechnicalDocumentationPage.jpg" alt="project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Technical Documentation Page
+                    <span class="code">/&gt;</span>
+                </p>
+            </a>
+            <a href="https://codepen.io/jorgechavarriaga/pen/vYyVjvX" target="_blank" class="project project-tile">
+                <img class="project-image" src="https://www.chavazystem.tech/assets/images/ProductLandingPage.jpg"
+                    alt="project">
+                <p class="project-title">
+                    <span class="code">&lt;</span>
+                    Product Landing Page
+                    <span class="code">/&gt;</span>
+                </p>
+            </a>
+
+        </div>
+        <a href="https://codepen.io/jorgechavarriaga" class="btn btn-show-all" target="_blank">All my projects at
+            Codepen<i class="fas fa-chevron-right"></i></a>
+    </section>
+    <section id="hobbies-section" class="hobbies-section">
+        <h2 class="hobbies-section-header">Hobbies</h2>
+        <ul>
+            <li>Music</li>
+            <li>Hiking</li>
+            <li>Cookig</li>
+            <li>Technology</li>
+        </ul>
+    </section>
+    <section id="contact" class="contact-section">
+        <div class="contact-section-header">
+            <h2>I want to work with you!</h2>
+            <p>Let have a coffee, and talk about tech!</p>
+        </div>
+        <div class="contact-links">
+            <a id="profile-link" href="https://github.com/jorgechavarriaga" target="_blank"
+                class="btn contact-details"><i class="fab fa-github"></i> GitHub</a>
+            <a id="profile-link" href="https://www.linkedin.com/in/jorge-chava/?locale=en_US" target="_blank"
+                class="btn contact-details"><i class="fab fa-linkedin"></i> Linkedin</a>
+            <a href="mailto:jorge.chavarriaga@chavazystem.tech" class="btn contact-details" target="_blank"><i
+                    class="fas fa-at"></i> Send a mail</a>
+            <a href="tel:+14384077941" class="btn contact-details" target="_blank"><i class="fas fa-mobile-alt"></i>
+                Call me</a>
+            <a href="https://wa.me/14384077941" target="_blank" class="btn contact-details"><i
+                    class="fab fa-whatsapp"></i> Whatsapp</a>
+        </div>
+    </section>
+    <footer>
+        <p>Created by<a href="https://www.freecodecamp.com/" target="_blank"> ChavaZystem Tech
+                <i class="fas fa-registered"></i> 2021</a>
+        </p>
+    </footer>
+</body>
+
+</html>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
